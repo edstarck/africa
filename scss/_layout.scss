@@ -521,6 +521,99 @@ a {
     border-radius: 8px;
     line-height: 3.3;
   }
+  &__price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: calc(33.33% - 20px * 2/3);
+    padding-bottom: 10px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  &__price-heading {
+    padding: 30px;
+    text-align: center;
+    line-height: 1.3;
+    &--free {
+      background-color: #fcb016;
+    }
+    &--standard {
+      background-color: #f07922;
+    }
+    &--premium {
+      background-color: #e64e2c;
+    }
+  }
+  &__price-title {
+    display: block;
+    color: #fff;
+    font-family: "SegoeUILight", sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  &__price-subtitle {
+    display: block;
+    color: #fff;
+    font-family: "SegoeUIBold", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  &__list {
+    padding: 0 20px;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+  }
+  &__price-item {
+    position: relative;
+    padding: 20px 0;
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 1px;
+      left: 50%;
+      bottom: 0;
+      margin-left: -50px;
+      opacity: 0.25;
+      background-color: #000;
+    }
+    span {
+      display: block;
+    }
+    &:last-child {
+      &:after {
+        background-color: transparent;
+      }
+    }
+  }
+  &__price-digital {
+    font-family: "SegoeUIBold", sans-serif;
+  }
+  &__price-link {
+    display: block;
+    width: 160px;
+    height: 50px;
+    margin: 0 auto;
+    color: #fff;
+    font-family: "SegoeUIBold", sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3.5;
+    &--free {
+      background-color: #fcb016;
+    }
+    &--standard {
+      background-color: #f07922;
+    }
+    &--premium {
+      background-color: #e64e2c;
+    }
+  }
 }
 
 .footer {
