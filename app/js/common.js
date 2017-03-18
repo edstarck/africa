@@ -14,7 +14,9 @@
 // Video
 (function(){
   function setClickHandler(id, fn) {
-    document.getElementById(id).onclick = fn;
+    if(id in window) {
+      document.getElementById(id).onclick = fn;
+    }
   }
 
   setClickHandler('video', function(e) {
@@ -25,6 +27,6 @@
           vidSrc: e.target.getAttribute('vidSrc'),
           noLoader: true
         });
-    })
+  })
 })();
 
