@@ -1,0 +1,335 @@
+@import "bourbon";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.6;
+  font-family: "SegoeUIRegular", sans-serif;
+  overflow: auto;
+  overflow: initial;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+.wrap {
+  width: 100%;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 30px;
+  &--lg {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.top-panel {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  &__wrap {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.logo {
+  width: 89px;
+  height: 25px;
+  margin-left: 30px;
+  img {
+    max-width: 100%;
+  }
+}
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  margin-left: 60px;
+  &__item {
+    margin-right: 35px;
+  }
+  &__link {
+    color: #333;
+    font-size: 12px;
+    font-family: "SegoeUIBold", sans-serif;
+    text-transform: uppercase;
+    &--white {
+      color: #fff;
+    }
+  }
+}
+.toggle-menu {
+  margin-right: 10px;
+  padding-right: 37px;
+  color: #333;
+  font-family: "SegoeUIBold", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-image: url("../img/icons/icon-gumburger.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  &--white {
+    color: #fff;
+    background-image: url("../img/icons/icon-gumburger--white.png");
+  }
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  padding: 48px 0 90px 0;
+  line-height: 1.2;
+  img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  &__title {
+    color: white;
+    font-family: "SegoeUILight", sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    text-align: center;
+    span {
+      display: block;
+    }
+  }
+  &__description {
+    max-width: 700px;
+    margin: 27px auto 0 auto;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  &__links {
+    margin-top: 40px;
+    text-align: center;
+  }
+  &__link {
+    display: inline-block;
+    width: 180px;
+    height: 50px;
+    margin: 0 10px;
+    color: #e64e2c;
+    font-family: "SegoeUISemiBold", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    line-height: 3.6;
+    transition: all .3s;
+    &:hover {
+      color: #fff;
+      background-color: transparent;
+      transition: all .3s;
+    }
+    &:last-child {
+      color: #fff;
+      background-color: transparent;
+      &:hover {
+        color: #e64e2c;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.section {
+  padding: 60px 0;
+  &__title {
+    color: #333;
+    font-family: "SegoeUILight", sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    text-align: center;
+  }
+  &__description {
+    color: #333;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.video {
+  position: relative;
+  max-width: 620px;
+  height: 346px;
+  left: 50%;
+  background-color: black;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  background-image: url("../img/picture/video_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: translateX(-50%);
+}
+
+.upgrade {
+  width: 100%;
+  height: 100px;
+  background-color: #4bc1de;
+  background-image: linear-gradient(to left, #e13731 0%, #fdb515 100%);
+  .banner__links {
+    margin-top: 0;
+  }
+  .banner__link {
+    width: 130px;
+    margin: 0 5px;
+  }
+  &__wrap {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    color: #fff;
+    font-family: "SegoeUILight", sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+  }
+}
+
+.features {
+  background-color: #feefd0;
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 45px;
+  }
+  &__brick {
+    flex-basis: calc(33.33% - 30px * 2/3);
+    display: flex;
+    flex-direction: column;
+  }
+  &__picture {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    &--auto {
+      background-image: url("../img/icons/icon-auto.png");
+    }
+    &--cash {
+      background-image: url("../img/icons/icon-cash.png");
+    }
+    &--transition {
+      background-image: url("../img/icons/icon-transition.png");
+    }
+    &--sale {
+      background-image: url("../img/icons/icon-sale.png");
+    }
+    &--people {
+      background-image: url("../img/icons/icon-people.png");
+    }
+    &--tracking {
+      background-image: url("../img/icons/icon-tracking.png");
+    }
+  }
+  &__title {
+    color: #333;
+    font-family: "SegoeUIBold", sans-serif;
+    font-size: 18px;
+  }
+  &__text {
+    color: #333;
+    font-size: 16px;
+  }
+}
+
+/** ===========================
+ *  Слайдер
+ *  ===========================
+*/
+.swiper {
+  &-container {
+      max-width: 700px;
+      height: 350px;
+  }
+  &-slide {
+    padding: 0 50px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-description {
+    color: #333;
+    font-family: "SegoeUILight", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+  }
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}
+
+.footer {
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+}
