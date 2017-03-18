@@ -6,11 +6,25 @@
     paginationClickable: true,
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
-    spaceBetween: 30,
-    slidesPerView: 1,
-    loop: true,
-    speed: 2000,
-    autoplay: 2500,
-    autoplayDisableOnInteraction: false
+    spaceBetween: 0,
+    slidesPerView: 1
   });
 })();
+
+// Video
+(function(){
+  function setClickHandler(id, fn) {
+    document.getElementById(id).onclick = fn;
+  }
+
+  setClickHandler('video', function(e) {
+    var className = e.target.className;
+      ~className.indexOf('video') &&
+        BigPicture({
+          el: e.target,
+          vidSrc: e.target.getAttribute('vidSrc'),
+          noLoader: true
+        });
+    })
+})();
+
