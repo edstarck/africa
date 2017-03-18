@@ -88,7 +88,8 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-    './app/libs/swiper/swiper.min.js'
+    './app/libs/swiper/swiper.min.js',
+    './app/libs/video/BigPicture.min.js'
 	])
 	.pipe(concat('libs.js'))
 	.pipe(uglify())
