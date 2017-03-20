@@ -21,12 +21,12 @@
 
   setClickHandler('video', function(e) {
     var className = e.target.className;
-      ~className.indexOf('video') &&
-        BigPicture({
-          el: e.target,
-          vidSrc: e.target.getAttribute('vidSrc'),
-          noLoader: true
-        });
+    ~className.indexOf('video') &&
+      BigPicture({
+        el: e.target,
+        vidSrc: e.target.getAttribute('vidSrc'),
+        noLoader: true
+      });
   })
 })();
 
