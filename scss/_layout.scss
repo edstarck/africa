@@ -7,9 +7,11 @@
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -17,8 +19,7 @@ body {
   position: relative;
   line-height: 1.6;
   font-family: "SegoeUIRegular", sans-serif;
-  overflow: auto;
-  overflow: initial;
+  overflow-x: hidden;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -51,7 +52,15 @@ a {
 
 .wrap {
   width: 100%;
+  height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  &__content {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
 }
 
 .hidden {
@@ -61,6 +70,10 @@ a {
 .container {
   max-width: 940px;
   margin: 0 auto;
+  padding: 0 20px;
+  @media(min-width: 1000px) {
+    padding: 0;
+  }
   &--lg {
     max-width: 1280px;
     margin: 0 auto;
@@ -81,17 +94,23 @@ a {
 .logo {
   width: 89px;
   height: 25px;
-  margin-left: 30px;
+  margin-left: 20px;
+  @media(min-width: 500px) {
+    margin-left: 30px;
+  }
   img {
     max-width: 100%;
   }
 }
 .menu {
-  display: flex;
+  display: none;
   justify-content: flex-start;
   align-items: center;
   flex: 1;
   margin-left: 52px;
+  @media(min-width: 620px) {
+    display: flex;
+  }
   &__item {
     margin-right: 35px;
   }
@@ -129,7 +148,7 @@ a {
   }
 }
 .toggle-menu {
-  margin-right: 10px;
+  margin-right: 20px;
   padding-right: 37px;
   color: #333;
   font-family: "SegoeUIBold", sans-serif;
@@ -138,21 +157,36 @@ a {
   background-image: url("../img/icons/icon-gumburger.png");
   background-repeat: no-repeat;
   background-position: right center;
-  opacity: 0;
+  opacity: 1;
+  @media(min-width: 500px) {
+    margin-right: 10px;
+  }
+  @media(min-width: 620px) {
+    opacity: 0;
+  }
   &--white {
     color: #fff;
     background-image: url("../img/icons/icon-gumburger--white.png");
   }
 }
 .menu-sub {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   position: absolute;
   top: 15px;
   left: 50%;
   margin: 0;
-  justify-content: center;
   transform: translateX(-50%);
+  @media(min-width: 600px) {
+    flex-direction: row;
+  }
   &__item {
-    margin: 0 10px;
+    margin: 5px 10px;
+    @media(min-width: 600px) {
+      margin: 0 10px;
+    }
   }
   &__link {
     height: 30px;
@@ -179,20 +213,16 @@ a {
   width: 100%;
   padding: 48px 0 90px 0;
   line-height: 1.2;
-  img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   &__title {
     color: white;
     font-family: "SegoeUILight", sans-serif;
     font-size: 48px;
     font-weight: 300;
     text-align: center;
+    line-height: 1.1;
     span {
       display: block;
     }
@@ -210,10 +240,10 @@ a {
     text-align: center;
   }
   &__link {
-    display: inline-block;
+    display: block;
     width: 180px;
     height: 50px;
-    margin: 0 10px;
+    margin: 0 auto 20px auto;
     color: #e64e2c;
     font-family: "SegoeUISemiBold", sans-serif;
     font-size: 14px;
@@ -223,6 +253,10 @@ a {
     border: 1px solid #fff;
     line-height: 3.6;
     transition: all .3s;
+    @media(min-width: 500px) {
+      display: inline-block;
+      margin: 0 10px 0 0;
+    }
     &:hover {
       color: #fff;
       background-color: transparent;
@@ -247,6 +281,7 @@ a {
     font-size: 48px;
     font-weight: 300;
     text-align: center;
+    line-height: 1.2;
   }
   &__description {
     color: #333;
@@ -256,9 +291,19 @@ a {
   }
 }
 
+.content-top {
+  .section__title {
+    margin-top: 100px;
+    @media(min-width: 600px) {
+      margin-top: 0;
+    }
+  }
+}
+
 .video {
   position: relative;
   max-width: 620px;
+  width: 100%;
   height: 346px;
   left: 50%;
   background-color: black;
@@ -266,7 +311,7 @@ a {
   background-image: url("../img/picture/video_bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   transform: translateX(-50%);
   cursor: pointer;
   &:before {
@@ -310,28 +355,45 @@ a {
 
 .upgrade {
   width: 100%;
-  height: 100px;
+  padding: 21px 0;
   background-color: #4bc1de;
   background-image: linear-gradient(to left, #e13731 0%, #fdb515 100%);
   .banner__links {
-    margin-top: 0;
+    margin-top: 20px;
+    @media(min-width: 1000px) {
+      margin-top: 0;
+    }
   }
   .banner__link {
     width: 130px;
-    margin: 0 5px;
+    margin: 0 5px 20px 0;
+    @media(min-width: 500px) {
+      margin: 0 5px 20px 0;
+    }
   }
   &__wrap {
     width: 100%;
-    height: 100px;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    @media(min-width: 1000px) {
+      justify-content: space-between;
+      flex-direction: row;
+    }
   }
   &__title {
+    margin-bottom: 20px;
     color: #fff;
     font-family: "SegoeUILight", sans-serif;
     font-size: 36px;
     font-weight: 300;
+    text-align: center;
+    line-height: 1.1;
+    @media(min-width: 500px) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -344,9 +406,15 @@ a {
     margin-top: 45px;
   }
   &__brick {
-    flex-basis: calc(33.33% - 30px * 2/3);
+    flex-basis: calc(100%);
     display: flex;
     flex-direction: column;
+    @media(min-width: 500px) {
+      flex-basis: calc(50% - 30px * 1/2);
+    }
+    @media(min-width: 800px) {
+      flex-basis: calc(33.33% - 30px * 2/3);
+    }
   }
   &__picture {
     width: 60px;
@@ -392,18 +460,24 @@ a {
 .swiper {
   &-container {
       max-width: 760px;
-      height: 400px;
+      height: 580px;
       margin-top: 40px;
       line-height: 1.2;
+      @media(min-width: 680px) {
+        height: 400px;
+      }
   }
   &-slide {
-    padding: 0 80px;
+    padding: 0;
     text-align: center;
     font-size: 18px;
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media(min-width: 680px) {
+      padding: 0 80px;
+    }
   }
   &-description {
     width: 100%;
@@ -431,12 +505,20 @@ a {
   background-repeat: no-repeat;
 }
 .swiper-button-prev {
+  display: none;
   left: 0;
   background-image: url("../img/icons/icon-arrow_left.png");
+  @media(min-width: 800px) {
+    display: block;
+  }
 }
 .swiper-button-next {
+  display: none;
   right: 0;
   background-image: url("../img/icons/icon-arrow_right.png");
+  @media(min-width: 800px) {
+    display: block;
+  }
 }
 
 .user {
@@ -513,12 +595,19 @@ a {
   }
   &__brick {
     display: flex;
-    flex-basis: calc(50% - 30px * 1/2);
+    flex-basis: calc(100%);
     justify-content: space-between;
     flex-direction: row;
     flex-grow: 0;
     flex-shrink: 0;
     margin-bottom: 60px;
+    flex-direction: column;
+    @media(min-width: 620px) {
+      flex-basis: calc(50% - 30px * 1/2);
+    }
+    @media(min-width: 860px) {
+      flex-direction: row;
+    }
   }
   &__picture {
     min-width: 140px;
@@ -561,11 +650,14 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-basis: calc(33.33% - 20px * 2/3);
+    flex-basis: calc(100%);
     padding-bottom: 10px;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     overflow: hidden;
+    @media(min-width: 820px) {
+      flex-basis: calc(33.33% - 20px * 2/3);
+    }
   }
   &__price-heading {
     padding: 30px;
@@ -656,7 +748,11 @@ a {
   &__item {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 45px;
+    @media(min-width: 700px) {
+      flex-direction: row;
+    }
     span {
       display: block;
     }
@@ -720,5 +816,94 @@ a {
 .footer {
   width: 100%;
   height: 60px;
+  flex: 0 0 auto;
   background-color: #333;
 }
+/*
+Menu mobile
+ */
+.app-menu {
+  transform: translateX(-100%);
+  transition: transform 300ms linear;
+  will-change: transform;
+}
+
+.app-menu-open .app-menu {
+  transform: none;
+  transition: transform 300ms linear;
+}
+
+.menu-mobile {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 150;
+}
+
+.app-menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 82%;
+  height: 100%;
+  padding: 60px 20px;
+  color: #333;
+  background-color: #fff;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transform: translateX(-103%);
+  z-index: 160;
+  pointer-events: auto;
+  will-change: transform;
+  li {
+    a {
+      font-size: 16px;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.menu--visible .app-menu {
+  transform: none;
+}
+
+.menu--animatable .app-menu {
+  transition: all 130ms ease-in;
+}
+
+.menu--visible.menu--animatable  .app-menu {
+  transition: all 330ms ease-out;
+}
+
+.menu-mobile:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  will-change: opacity;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0,0,0.3,1);
+}
+
+.menu--visible.menu-mobile:after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-layout {
+  height: 100vh;
+  overflow: hidden;
+}
+
