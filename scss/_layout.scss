@@ -24,6 +24,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
+  font-weight: normal;
 }
 
 ul {
@@ -133,14 +134,43 @@ a {
   color: #333;
   font-family: "SegoeUIBold", sans-serif;
   font-size: 14px;
-  font-weight: 600;
   text-transform: uppercase;
   background-image: url("../img/icons/icon-gumburger.png");
   background-repeat: no-repeat;
   background-position: right center;
+  opacity: 0;
   &--white {
     color: #fff;
     background-image: url("../img/icons/icon-gumburger--white.png");
+  }
+}
+.menu-sub {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  margin: 0;
+  justify-content: center;
+  transform: translateX(-50%);
+  &__item {
+    margin: 0 10px;
+  }
+  &__link {
+    height: 30px;
+    padding: 3px 20px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 15px;
+    transition: all .4s;
+    &--active {
+      background-color: #fff;
+    }
+    &:hover {
+      background-color: #fff;
+      transition: all .4s;
+    }
   }
 }
 
@@ -376,6 +406,7 @@ a {
     align-items: center;
   }
   &-description {
+    width: 100%;
     color: #333;
     font-family: "SegoeUILight", sans-serif;
     font-size: 16px;
@@ -458,9 +489,10 @@ a {
 }
 
 .content-top {
+  position: relative;
   background-color: #feefd0;
   &__description {
-    max-width: 530px;
+    max-width: 640px;
     margin: 0 auto;
     text-align: center;
     font-size: 24px;
@@ -483,6 +515,9 @@ a {
     display: flex;
     flex-basis: calc(50% - 30px * 1/2);
     justify-content: space-between;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
     margin-bottom: 60px;
   }
   &__picture {
@@ -493,6 +528,7 @@ a {
     }
   }
   &__description {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -613,6 +649,71 @@ a {
     &--premium {
       background-color: #e64e2c;
     }
+  }
+}
+
+.reporting-list {
+  &__item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 45px;
+    span {
+      display: block;
+    }
+  }
+  &__picture {
+    width: 120px;
+    height: 120px;
+    margin: 0 35px 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    &--budgeting {
+      background-image: url("../img/icons/icon-Budgeting.png");
+    }
+    &--collaborative {
+      background-image: url("../img/icons/icon-collaborative.png");
+    }
+    &--reporting {
+      background-image: url("../img/icons/icon-report.png");
+    }
+    &--closing {
+      background-image: url("../img/icons/icon-closing.png");
+    }
+    &--managing {
+      background-image: url("../img/icons/icon-managing.png");
+    }
+    &--cash {
+      background-image: url("../img/icons/icon-cash-bg.png");
+    }
+    &--order {
+      background-image: url("../img/icons/icon-order.png");
+    }
+    &--invoices {
+      background-image: url("../img/icons/icon-invoices.png");
+    }
+    &--returns {
+      background-image: url("../img/icons/icon-returns.png");
+    }
+    &--time {
+      background-image: url("../img/icons/icon-time.png");
+    }
+    &--track {
+      background-image: url("../img/icons/icon-track.png");
+    }
+  }
+  &__description {
+    max-width: 460px;
+  }
+  &__title {
+    margin-bottom: 15px;
+    color: #333;
+    font-family: "SegoeUIBold", sans-serif;
+    font-size: 18px;
+  }
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
   }
 }
 
